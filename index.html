@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Café Lbeldia</h1>
+    <h2 id="titre_menu">MENU</h2>
+    <div id="menu">
+    <div id="boissons">Boissons
+        <ul>
+            <li class="article">
+                <img src="./images/expresso.jpg" alt="Café expresso">
+               <span>Café expresso</span>
+            </li> 
+            <li>Café au Lait</li>
+            <li class="article">
+               <img src="./images/capuchino.jpg" 
+                Capuchino alt="Capuchino">
+                <span>Capuchino</span>
+            </li>
+            <li>Café russe</li>
+            <li>Mhersa</li>
+        </ul>
+    </div>
+    <div id="patisseries">Patisseries Marocaines
+        <ul>
+            <li class="article">
+                <img src="./images/msemen.jpg" alt="Msemen">
+               <span>Msemen</span> 
+            </li> 
+            <li>Ftour rbaté</li>
+            <li class="article">
+                <img src="./images/بغرير.jpeg" alt="Beghrir">
+                <span>Beghrir</span>
+            </li>
+            <li>Ke3b legzal</li>
+            <li>Chfenj</li>
+        </ul>
+    </div>
+</div>
+
+<section id="commande">
+    <h2>Envie de vous régaler ?</h2>
+    <p>Retrouvez les saveurs du Maroc chez vous !</p>
+    <button id="ouvrir-commande">Commander en ligne</button>
+</section>
+
+<div id="fenetre-commande" class="fenetre-cachee">
+    <div class="contenu-commande">
+        <button id="fermer-commande" type="button">✕</button>
+
+        <h2>Votre commande - Café Lbeldia</h2>
+
+        <form id="formulaire-commande">
+            <label for="nom">Votre nom :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="telephone">Votre téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" required>
+
+            <h3>Choisissez vos articles</h3>
+
+            <label for="expresso">Café expresso :</label>
+            <input type="number" id="expresso" name="expresso"
+                   min="0" value="0">
+
+            <label for="cappuccino">Cappuccino :</label>
+            <input type="number" id="cappuccino" name="cappuccino"
+                   min="0" value="0">
+
+            <label for="msemen">Msemen :</label>
+            <input type="number" id="msemen" name="msemen"
+                   min="0" value="0">
+
+            <label for="beghrir">Beghrir :</label>
+            <input type="number" id="beghrir" name="beghrir"
+                   min="0" value="0">
+
+            <label for="adresse">Adresse de livraison :</label>
+            <textarea id="adresse" name="adresse" required></textarea>
+
+            <button type="submit">Envoyer ma commande</button>
+        </form>
+
+        <p id="message-commande"></p>
+    </div>
+</div>
+
+  <script src="script.js"></script>  
+</body>
+</html>

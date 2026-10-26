@@ -1,0 +1,167 @@
+
+
+html {
+    min-height: 100%;
+    background-color: #F5EBDD;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #4E342E;
+
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(245, 235, 221, 0.65),
+            rgba(245, 235, 221, 0.65)
+        ),
+        url("./images/porte1_maroc.jpg") center center / cover fixed no-repeat;
+}
+
+
+h1 {
+    color: #83321f;
+    text-align: center;
+}
+
+h2 {
+    color: #A0522D;
+}
+
+#menu {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#boissons,
+#patisseries {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(255, 250, 240, 0.3);
+    border: 1px solid #D6B995;
+    border-radius: 10px;
+}
+
+#titre_menu {
+    text-align: center;
+}
+
+#menu {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    color: #8B4513;
+}
+.article{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.article img {
+    width: 70px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#commande {
+    text-align: center;
+    margin: 40px 20px;
+    padding: 25px;
+    background-color: rgba(255, 250, 240, 0.70);
+    border-radius: 10px;
+}
+
+#commande h2 {
+    color: #83321f;
+}
+
+#commande button {
+    background-color: #83321f;
+    color: #fffaf0;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#commande button:hover {
+    background-color: #A0522D;
+}
+
+#fenetre-commande {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.fenetre-cachee {
+    display: none;
+}
+
+.contenu-commande {
+    background: #F5EBDD;
+    color: #4E342E;
+    width: 90%;
+    max-width: 380px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+#fermer-commande {
+    float: right;
+    cursor: pointer;
+}
+
+#formulaire-commande label {
+    display: block;
+    margin-top: 8px;
+}
+
+#formulaire-commande input,
+#formulaire-commande textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 7px;
+    margin-top: 3px;
+    
+}
+#formulaire-commande textarea {
+    height: 55px;
+}
+
+#formulaire-commande button[type="submit"] {
+    margin-top: 20px;
+    padding: 12px;
+    width: 100%;
+    background: #83321f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
