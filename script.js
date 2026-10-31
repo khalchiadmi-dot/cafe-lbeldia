@@ -60,6 +60,8 @@ formulaire.addEventListener("submit", function (event) {
 
 // Sélectionner le titre
 const titre = document.querySelector("h1");
+console.log(titre);
+
 
 // Événement lorsque la souris passe sur le titre
 titre.addEventListener("mouseenter", function () {
@@ -73,4 +75,8 @@ titre.addEventListener("mouseenter", function () {
 
     // Ajouter la classe qui déclenche le rebondissement
     titre.classList.add("rebond");
+});
+// Quand la souris quitte le titre
+titre.addEventListener("mouseleave", function () {
+    titre.style.color = ""; // Reprend la couleur définie dans le CSS
 });
