@@ -58,14 +58,18 @@ formulaire.addEventListener("submit", function (event) {
 <textarea id="adresse" name="adresse" required></textarea>
 
 // Sélectionner le titre
+// Sélectionner le titre
 const titre = document.querySelector("h1");
 
-// Ajouter l'événement hover
-titre.addEventListener("mouseover", function () {
-    titre.classList.add("rebond");
-});
+// Événement lorsque la souris passe sur le titre
+titre.addEventListener("mouseenter", function () {
 
-// Retirer la classe après l'animation
-titre.addEventListener("animationend", function () {
+    // Retirer la classe pour pouvoir recommencer l'animation
     titre.classList.remove("rebond");
+
+    // Réinitialiser l'animation
+    void titre.offsetWidth;
+
+    // Ajouter la classe qui déclenche le rebondissement
+    titre.classList.add("rebond");
 });
