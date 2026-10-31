@@ -55,9 +55,9 @@ formulaire.addEventListener("submit", function (event) {
         ". Adresse : " + adresse +
         ". Vous pourrez ensuite transmettre votre commande au café.";
 });
-<textarea id="adresse" name="adresse" required></textarea>
 
-// Sélectionner le titre
+
+
 // Sélectionner le titre
 const titre = document.querySelector("h1");
 
