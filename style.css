@@ -2,7 +2,7 @@
 
 html {
     min-height: 100%;
-    background-color: #F5EBDD;
+    background-color: #e9a84e;
 }
 
 body {
@@ -104,7 +104,7 @@ h2 {
 }
 
 #commande button:hover {
-    background-color: #A0522D;
+    background-color: #d78159;
 }
 
 #fenetre-commande {
@@ -164,4 +164,29 @@ h2 {
     cursor: pointer;
 }
 
+/* Animation de rebondissement */
+@keyframes rebond {
+    0% {
+        transform: translateY(0);
+    }
 
+    30% {
+        transform: translateY(-20px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    70% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.rebond {
+    animation: rebond 0.5s ease;
+}

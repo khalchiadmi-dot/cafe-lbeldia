@@ -4,7 +4,7 @@ document.getElementById("ouvrir-commande").addEventListener("click", function ()
           "Notre menu :\n" +
           "☕ Café expresso\n" +
           "🥛 Café au lait\n" +
-          "☕ Cappuccino\n" +
+          "Cappuccino\n" +
           "🇷🇺 Café russe\n" +
           "🥞 Mhersa\n\n" +
           "🍯 Lemlawi\n" +
@@ -54,4 +54,18 @@ formulaire.addEventListener("submit", function (event) {
         "Téléphone : " + telephone +
         ". Adresse : " + adresse +
         ". Vous pourrez ensuite transmettre votre commande au café.";
+});
+<textarea id="adresse" name="adresse" required></textarea>
+
+// Sélectionner le titre
+const titre = document.querySelector("h1");
+
+// Ajouter l'événement hover
+titre.addEventListener("mouseover", function () {
+    titre.classList.add("rebond");
+});
+
+// Retirer la classe après l'animation
+titre.addEventListener("animationend", function () {
+    titre.classList.remove("rebond");
 });
