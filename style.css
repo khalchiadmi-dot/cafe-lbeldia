@@ -83,18 +83,19 @@ h2 {
 
 #commande {
     text-align: center;
-    margin: 15px 0;
-    padding: 15px 10px;
+    margin: 8px 0;
+    padding: 5px 10px;
     background-color: rgba(255, 250, 240, 0.70);
     border-radius: 10px;
 }
 
 #commande h2 {
-    padding: 5px 0;
+    margin: 5px 0;
+    padding:  0;
     color: #83321f;
 }
 #commande p { 
-margin: 5px 0 10px;
+margin: 5px 0 ;
 }
 
 #commande button {
