@@ -1,23 +1,88 @@
-
-
-.lien-cuisine {
-    text-align: center;
-    margin: 15px;
+html {
+    min-height: 100%;
+    background-color: #e9a84e;
 }
 
-.lien-cuisine a {
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #4E342E;
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            rgba(245, 235, 221, 0.65),
+            rgba(245, 235, 221, 0.65)
+        ),
+        url("./images/porte1_maroc.jpg") center center / cover fixed no-repeat;
+}
+
+#menu-cuisine {
+    flex: 1;
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background-color: rgba(255, 250, 240, 0.3);
+    border: 1px solid #D6B995;
+    border-radius: 10px;
+}
+
+#menu-cuisine h2 {
+    color: #8B4513;
+    text-align: center;
+    font-size: 24px;
+    margin: 8px 0 25px;
+}
+
+#menu-cuisine ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#menu-cuisine .article {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 0;
+}
+
+#menu-cuisine .article img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#retour-page-menu {
+    text-align: center;
+    margin: 20px;
+}
+
+#retour-page-menu a {
     color: #83321f;
     font-weight: bold;
     text-decoration: none;
-    
 }
 
-.lien-cuisine a:hover {
+#retour-page-menu a:hover {
     color: #d78159;
     text-decoration: underline;
 }
-# retour-page-menu{
-    text-align: center;
-    justify-content: center;
 
-}@
+@media (max-width: 600px) {
+    #menu-cuisine ul {
+        grid-template-columns: 1fr;
+    }
+}
