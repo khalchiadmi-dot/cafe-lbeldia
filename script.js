@@ -65,7 +65,7 @@ console.log(titre);
 
 // Événement lorsque la souris passe sur le titre
 titre.addEventListener("mouseenter", function () {
-    titre.style.color = "green";
+    titre.style.color = "black";
 
     // Retirer la classe pour pouvoir recommencer l'animation
     titre.classList.remove("rebond");
