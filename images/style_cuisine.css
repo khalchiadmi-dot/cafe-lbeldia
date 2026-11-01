@@ -1,0 +1,15 @@
+.lien-cuisine {
+    text-align: center;
+    margin: 15px;
+}
+
+.lien-cuisine a {
+    color: #83321f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.lien-cuisine a:hover {
+    color: #d78159;
+    text-decoration: underline;
+}
