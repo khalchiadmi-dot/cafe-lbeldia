@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
     margin: 0;
 
-    display: flex;
+    display: flex; 
     flex-direction: column;
 
     background:
