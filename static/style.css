@@ -203,3 +203,23 @@ footer {
         gap: 15px;
     }
 }
+.lien-cuisine {
+    text-align: center;
+    background-color: #f5e6cc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.lien-cuisine p {
+    color: #8b4513;
+}
+
+.lien-cuisine a {
+    color: #a52a2a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.lien-cuisine a:hover {
+    color: #d2691e;
+}
