@@ -1,0 +1,126 @@
+
+/* =================================
+   CAFÉ LBELDIA - PAGE CONTACT
+================================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f0e5;
+    color: #3e3025;
+}
+
+/* Conteneur principal */
+.contact-container {
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #fffdf8;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+}
+
+/* Titre */
+.contact-container h1 {
+    text-align: center;
+    color: #87472d;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+/* Introduction */
+.contact-container p {
+    text-align: center;
+    line-height: 1.7;
+    color: #766354;
+}
+
+/* Formulaire */
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Labels */
+.contact-container label {
+    font-weight: bold;
+}
+
+/* Champs */
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid #d9c5b2;
+    border-radius: 9px;
+    font-size: 16px;
+    background: #fff;
+}
+
+/* Focus */
+.contact-container input:focus,
+.contact-container textarea:focus {
+    outline: none;
+    border-color: #a65e3c;
+    box-shadow: 0 0 5px rgba(166,94,60,0.3);
+}
+
+/* Zone de message */
+.contact-container textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Bouton */
+.contact-container button {
+    padding: 15px;
+    background: #355744;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-container button:hover {
+    background: #254332;
+}
+
+/* Messages Flask */
+.contact-container .flash-message {
+    padding: 14px;
+    background: #e6f2e8;
+    color: #285b35;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+/* Retour accueil */
+.contact-container .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #87472d;
+    text-decoration: none;
+}
+
+.contact-container .back-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .contact-container {
+        margin: 25px 15px;
+        padding: 25px 20px;
+    }
+
+    .contact-container h1 {
+        font-size: 25px;
+    }
+}
