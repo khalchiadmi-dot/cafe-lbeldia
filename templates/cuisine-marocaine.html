@@ -1,48 +1,78 @@
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>La cuisine marocaine - Café Lbeldia</title>
-    <link rel="stylesheet" href="style_cuisine.css">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style_cuisine.css') }}">
 </head>
 
 <body>
+
+    <header>
+        <h1>La cuisine marocaine</h1>
+        <p>Découvrez les saveurs traditionnelles du Maroc</p>
+    </header>
+
     <main id="menu-cuisine">
+
         <h2>Nos plats marocains</h2>
-    <ul>
-        <li class="article">
-            <img src="./images/cuisine/taj_belberqoq.jpg" alt="taj_belberqoq">
-            <span>viande avec lberqoq</span>
 
-            </li>
-        <li class="article">
-            <img src="./images/cuisine/taj_patate_carote.jpg" alt="taj_patate_carote">
-            <span>viande avec patates-carottes et zitoun</span>
+        <ul>
 
+            <li class="article">
+                <img src="{{ url_for('static', filename='images/cuisine/taj_belberqoq.jpg') }}"
+                     alt="Tajine de viande aux pruneaux">
+                <span>Viande avec lberqoq</span>
             </li>
-        <li class="article">
-            <img src="./images/cuisine/taj_zbib.jpg" alt="taj_zbib">
-            <span> viande avec des raisins secs</span>
-        </li>
-        <li class="article">
-           <img src="./images/cuisine/couscous.jpg" alt="couscous">
-           <span><strong>Couscous</strong></span>
-        </li>
-        <li class="article">
-            <img src="./images/cuisine/kefta_au_tomates.jpg" alt="kefta_au_tomates">
-          <span>Kefta au tomates</span>
-        </li>
-        <li class="article">
-            <img src="./images/cuisine/lehrirah.jpg" alt="lehrirah">
-        <span>lehrirah</span>
-        </li>
-    </ul>
+
+            <li class="article">
+                <img src="{{ url_for('static', filename='images/cuisine/taj_patate_carote.jpg') }}"
+                     alt="Tajine de viande avec pommes de terre et carottes">
+                <span>Viande avec patates, carottes et zitoun</span>
+            </li>
+
+            <li class="article">
+                <img src="{{ url_for('static', filename='images/cuisine/taj_zbib.jpg') }}"
+                     alt="Viande avec des raisins secs">
+                <span>Viande avec des raisins secs</span>
+            </li>
+
+            <li class="article">
+                <img src="{{ url_for('static', filename='images/cuisine/couscous.jpg') }}"
+                     alt="Couscous marocain">
+                <span><strong>Couscous</strong></span>
+            </li>
+
+            <li class="article">
+                <img src="{{ url_for('static', filename='images/cuisine/kefta_au_tomates.jpg') }}"
+                     alt="Kefta à la tomate">
+                <span>Kefta à la tomate</span>
+            </li>
+
+            <li class="article">
+                <img src="{{ url_for('static', filename='images/cuisine/lehrirah.jpg') }}"
+                     alt="Harira marocaine">
+                <span>Lehrirah</span>
+            </li>
+
+        </ul>
 
     </main>
-    <p  id="retour-page-menu">
-        <a href="index.html">← Retour à la page d'accueil</a>
-   </p>
+
+    <footer>
+        <a href="{{ url_for('accueil') }}">
+            ← Retour à la page d'accueil
+        </a>
+    </footer>
+
 </body>
 </html>

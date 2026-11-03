@@ -1,124 +1,202 @@
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM</title>
-    <link rel="stylesheet" href="style.css">
-    
+
+    <title>Café Lbeldia - Accueil</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-    <h1>Café Lbeldia</h1>
-    <h2 id="titre_menu">MENU</h2>
-    <div id="menu">
-    <div id="boissons"><strong>Boissons</strong>
-        <ul>
-            <li class="article">
-                <img src="./images/boissons/expresso.jpg" alt="Café expresso">
-               <span>Café expresso</span>
-            </li> 
-            <li class="article">
-                <img src="./images/boissons/cafe_au_lait.jpg" alt="cafe_au_lait">
-               <span> Café au Lait</span>
-            </li>
-            <li class="article">
-               <img src="./images/boissons/capuchino.jpg" 
-                 alt="Capuchino">
-                <span>Capuchino</span>
-            </li>
-            <li class="article">
-                <img src="./images/boissons/cafe_russe.jpg" alt="caf'_russe">
-                <span>café russe</span>
 
-            </li>
-            <li class="article">
-                <img src="./images/boissons/thé.jpg" alt="thé">
-                <span>Thé à la menthe</span>
-            </li>
-            <li>Mhersa</li>
-        </ul>
+    <header>
+        <h1>Café Lbeldia</h1>
+    </header>
+
+    <main>
+
+        <h2 id="titre_menu">MENU</h2>
+
+        <div id="menu">
+
+            <!-- BOISSONS -->
+            <div id="boissons">
+                <strong>Boissons</strong>
+
+                <ul>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/boissons/expresso.jpg') }}"
+                             alt="Café expresso">
+                        <span>Café expresso</span>
+                    </li>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/boissons/cafe_au_lait.jpg') }}"
+                             alt="Café au lait">
+                        <span>Café au lait</span>
+                    </li>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/boissons/capuchino.jpg') }}"
+                             alt="Cappuccino">
+                        <span>Cappuccino</span>
+                    </li>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/boissons/cafe_russe.jpg') }}"
+                             alt="Café russe">
+                        <span>Café russe</span>
+                    </li>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/boissons/thé.jpg') }}"
+                             alt="Thé à la menthe">
+                        <span>Thé à la menthe</span>
+                    </li>
+
+                    <li>
+                        Mhersa
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- PATISSERIES -->
+            <div id="patisseries">
+                <strong>Pâtisseries marocaines</strong>
+
+                <ul>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/pattisseries/msemen.jpg') }}"
+                             alt="Msemen">
+                        <span>Msemen</span>
+                    </li>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/pattisseries/ftor_rbate.jpg') }}"
+                             alt="Ftour rbaté">
+                        <span>Ftour rbaté</span>
+                    </li>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/pattisseries/بغرير.jpeg') }}"
+                             alt="Beghrir">
+                        <span>Beghrir</span>
+                    </li>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/pattisseries/ke3b_leghzal.jpg') }}"
+                             alt="Kaab el ghazal">
+                        <span>Ke3b_leghzal</span>
+                    </li>
+
+                    <li class="article">
+                        <img src="{{ url_for('static', filename='images/pattisseries/chfenj.jpg') }}"
+                             alt="Chfenj">
+                        <span>Chfenj</span>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- LIEN VERS LA CUISINE -->
+        <section>
+            <div class="lien-cuisine">
+                <p>
+                    <strong>Envie de manger ? Découvrez nos plats marocains !</strong>
+                </p>
+
+                <a href="{{ url_for('cuisine') }}">
+                    Découvrir nos plats traditionnels
+                </a>
+            </div>
+        </section>
+
+        <!-- COMMANDE -->
+        <section id="commande">
+
+            <h2>Envie de vous régaler ?</h2>
+
+            <p>Retrouvez les saveurs du Maroc chez vous !</p>
+
+            <button id="ouvrir-commande" type="button">
+                Commander en ligne
+            </button>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Café Lbeldia - Saveurs et traditions marocaines</p>
+
+        <a href="{{ url_for('contact') }}">
+            Nous contacter
+        </a>
+    </footer>
+
+    <!-- FENETRE DE COMMANDE -->
+    <div id="fenetre-commande" class="fenetre-cachee">
+
+        <div class="contenu-commande">
+
+            <button id="fermer-commande" type="button">✕</button>
+
+            <h2>Votre commande - Café Lbeldia</h2>
+
+            <form id="formulaire-commande">
+
+                <label for="nom">Votre nom :</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="telephone">Votre téléphone :</label>
+                <input type="tel" id="telephone" name="telephone" required>
+
+                <h3>Choisissez vos articles</h3>
+
+                <label for="expresso">Café expresso :</label>
+                <input type="number" id="expresso" name="expresso"
+                       min="0" value="0">
+
+                <label for="cappuccino">Cappuccino :</label>
+                <input type="number" id="cappuccino" name="cappuccino"
+                       min="0" value="0">
+
+                <label for="msemen">Msemen :</label>
+                <input type="number" id="msemen" name="msemen"
+                       min="0" value="0">
+
+                <label for="beghrir">Beghrir :</label>
+                <input type="number" id="beghrir" name="beghrir"
+                       min="0" value="0">
+
+                <label for="adresse">Adresse de livraison :</label>
+                <textarea id="adresse" name="adresse" required></textarea>
+
+                <button type="submit">
+                    Envoyer ma commande
+                </button>
+
+            </form>
+
+            <p id="message-commande"></p>
+
+        </div>
+
     </div>
-    <div id="patisseries"><strong>Patisseries Marocaines</strong>
-        <ul>
-            <li class="article">
-                <img src="./images/pattisseries/msemen.jpg" alt="Msemen">
-               <span>Msemen</span> 
-            </li> 
-            <li class="article">
-                <img src="./images/pattisseries/ftor_rbate.jpg" alt="ftor_rbate">
-                Ftour rbaté</li>
-            <li class="article">
-                <img src="./images/pattisseries/بغرير.jpeg" alt="Beghrir">
-                <span>Beghrir</span>
-            </li>
-            <li class="article"> 
-                <img src="./images/pattisseries/ke3b_leghzal.jpg" alt="ke3b_leghzal">
-                <span>Ke3b_leghzal</span>
-            </li>
-            <li class="article">
-                <img src="./images/pattisseries/chfenj.jpg" alt="chfenj">
-                <span>chfenj</span>
-            </li>
-        </ul>
-    </div>
-</div>
-<section>
-<div class="lien-cuisine">
-    <p><strong>Envie de manger ? Découvrez nos plats marocains !</strong></p>
-    <a href="cuisine-marocaine.html">Découvrir nos plats traditionnels</a>
-</div>
-</section>
-<footer>
-<section id="commande">
-    <h2>Envie de vous régaler ?</h2>
-    <p>Retrouvez les saveurs du Maroc chez vous !</p>
-    <button id="ouvrir-commande">Commander en ligne</button>
-</section>
-</footer>
 
-<div id="fenetre-commande" class="fenetre-cachee">
-    <div class="contenu-commande">
-        <button id="fermer-commande" type="button">✕</button>
+    <!-- JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 
-        <h2>Votre commande - Café Lbeldia</h2>
-
-        <form id="formulaire-commande">
-            <label for="nom">Votre nom :</label>
-            <input type="text" id="nom" name="nom" required>
-
-            <label for="telephone">Votre téléphone :</label>
-            <input type="tel" id="telephone" name="telephone" required>
-
-            <h3>Choisissez vos articles</h3>
-
-            <label for="expresso">Café expresso :</label>
-            <input type="number" id="expresso" name="expresso"
-                   min="0" value="0">
-
-            <label for="cappuccino">Cappuccino :</label>
-            <input type="number" id="cappuccino" name="cappuccino"
-                   min="0" value="0">
-
-            <label for="msemen">Msemen :</label>
-            <input type="number" id="msemen" name="msemen"
-                   min="0" value="0">
-
-            <label for="beghrir">Beghrir :</label>
-            <input type="number" id="beghrir" name="beghrir"
-                   min="0" value="0">
-
-            <label for="adresse">Adresse de livraison :</label>
-            <textarea id="adresse" name="adresse" required></textarea>
-
-            <button type="submit">Envoyer ma commande</button>
-        </form>
-
-        <p id="message-commande"></p>
-    </div>
-</div>
-
-
-  <script src="script.js"></script>  
 </body>
 </html>

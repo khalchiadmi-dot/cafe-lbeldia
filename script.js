@@ -1,43 +1,27 @@
 
-document.getElementById("ouvrir-commande").addEventListener("click", function () {
-    alert("Bienvenue au Café Lbeldia ! ☕\n\n" +
-          "Notre menu :\n" +
-          "☕ Café expresso\n" +
-          "🥛 Café au lait\n" +
-          "Cappuccino\n" +
-          "🇷🇺 Café russe\n" +
-          "🥞 Mhersa\n\n" +
-          "🍯 Lemlawi\n" +
-          "🥞 Ftour rbaté\n" +
-          "🥞 Beghrir\n" +
-          "🍪 Ke3b legzal\n" +
-          "🍩 Chfenj\n\n" +
-          "Bon appétit !");
-});
-
 const boutonOuvrir = document.getElementById("ouvrir-commande");
 const boutonFermer = document.getElementById("fermer-commande");
 const fenetreCommande = document.getElementById("fenetre-commande");
 const formulaire = document.getElementById("formulaire-commande");
 const message = document.getElementById("message-commande");
 
-// Ouvrir la fenêtre
+// Ouvrir la fenêtre de commande
 boutonOuvrir.addEventListener("click", function () {
     fenetreCommande.style.display = "block";
 });
 
-// Fermer la fenêtre
+// Fermer la fenêtre de commande
 boutonFermer.addEventListener("click", function () {
     fenetreCommande.style.display = "none";
 });
 
-// Traiter le formulaire
+// Vérifier le formulaire
 formulaire.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const nom = document.getElementById("nom").value;
-    const telephone = document.getElementById("telephone").value;
-    const adresse = document.getElementById("adresse").value;
+    const nom = document.getElementById("nom").value.trim();
+    const telephone = document.getElementById("telephone").value.trim();
+    const adresse = document.getElementById("adresse").value.trim();
 
     const expresso = Number(document.getElementById("expresso").value);
     const cappuccino = Number(document.getElementById("cappuccino").value);
@@ -50,33 +34,24 @@ formulaire.addEventListener("submit", function (event) {
     }
 
     message.textContent =
-        "Merci " + nom + " ! Votre commande est préparée. " +
+        "Merci " + nom + " ! Votre commande est prête à être transmise. " +
         "Téléphone : " + telephone +
-        ". Adresse : " + adresse +
-        ". Vous pourrez ensuite transmettre votre commande au café.";
+        ". Adresse : " + adresse + ".";
+
 });
 
-
-
-// Sélectionner le titre
+// Animation du titre
 const titre = document.querySelector("h1");
-console.log(titre);
 
+if (titre) {
+    titre.addEventListener("mouseenter", function () {
+        titre.style.color = "black";
+        titre.classList.remove("rebond");
+        void titre.offsetWidth;
+        titre.classList.add("rebond");
+    });
 
-// Événement lorsque la souris passe sur le titre
-titre.addEventListener("mouseenter", function () {
-    titre.style.color = "black";
-
-    // Retirer la classe pour pouvoir recommencer l'animation
-    titre.classList.remove("rebond");
-
-    // Réinitialiser l'animation
-    void titre.offsetWidth;
-
-    // Ajouter la classe qui déclenche le rebondissement
-    titre.classList.add("rebond");
-});
-// Quand la souris quitte le titre
-titre.addEventListener("mouseleave", function () {
-    titre.style.color = ""; // Reprend la couleur définie dans le CSS
-});
+    titre.addEventListener("mouseleave", function () {
+        titre.style.color = "";
+    });
+}

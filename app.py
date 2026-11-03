@@ -14,6 +14,9 @@ load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
+if not app.secret_key:
+    raise RuntimeError("FLASK_SECRET_KEY est absente du fichier .env")
+
 
 # Création de la base de données
 def creer_base():
@@ -72,7 +75,10 @@ Message :
 # Page d'accueil
 @app.route("/")
 def accueil():
-    return "Bienvenue chez Café Lbeldia !"
+    return render_template("index.html")
+@app.route("/cuisine")
+def cuisine():
+    return render_template("cuisine-marocaine.html")
 
 
 # Page Contact
