@@ -55,7 +55,7 @@ def envoyer_email(nom, email_client, message_client):
 Nouveau message reçu depuis le site Café Lbeldia.
 
 Nom : {nom}
-E-mail : {email_client}
+E-mail : {email_client}       
 
 Message :
 {message_client}
