@@ -116,7 +116,7 @@ def contact():
 
     return render_template("contact.html")
 
-
+creer_base()
 if __name__ == "__main__":
     creer_base()
     app.run(debug=True)
