@@ -223,3 +223,32 @@ footer {
 .lien-cuisine a:hover {
     color: #d2691e;
 }
+/* AFFICHAGE DES PRIX */
+.article {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr) 90px;
+    align-items: start;
+    column-gap: 10px;
+    margin-bottom: 15px;
+}
+
+.article img {
+    width: 70px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    align-self: center;
+}
+
+.article > span:not(.prix) {
+    min-width: 0;
+}
+
+.article .prix {
+    color: #83321f;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.3;
+    white-space: normal;
+    text-align: left;
+}
