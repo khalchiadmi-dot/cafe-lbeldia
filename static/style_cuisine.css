@@ -2,6 +2,24 @@ html {
     min-height: 100%;
     background-color: #e9a84e;
 }
+/* HEADER DE LA PAGE CUISINE */
+header {
+    background: linear-gradient(135deg, #8b4513, #d78159);
+    color: #fffaf0;
+    text-align: center;
+    padding: 30px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 30px;
+    margin: 0 0 10px;
+}
+
+header p {
+    font-size: 16px;
+    margin: 0;
+}
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
