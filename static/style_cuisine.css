@@ -4,15 +4,15 @@ html {
 }
 /* HEADER DE LA PAGE CUISINE */
 header {
-    background: linear-gradient(135deg, #8b4513, #e59f7f);
-    color: #fffaf0 ;
+    background: linear-gradient(135deg, #176b78, #5ba6bb);
+    color: #ffffff;
     text-align: center;
     padding: 30px 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
-    color: #4a1f12 !important;
+    color: #ffffff !important;
     margin: 0 0 10px;
     text-shadow: 1px 1px 2px rgba(255, 250, 240, 0.5);
 }
