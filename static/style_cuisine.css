@@ -85,3 +85,10 @@ body {
     font-weight: bold;
     color: #83321f;
 }
+.article img {
+    transition: transform 0.3s ease;
+}
+
+.article img:hover {
+    transform: translateY(-6px) scale(1.08);
+}
