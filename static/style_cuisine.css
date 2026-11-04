@@ -75,3 +75,13 @@ body {
         grid-template-columns: 1fr;
     }
 }
+.article-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.prix {
+    font-weight: bold;
+    color: #83321f;
+}
