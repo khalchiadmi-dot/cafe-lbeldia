@@ -47,6 +47,7 @@ def creer_base():
             email TEXT NOT NULL,
             articles TEXT NOT NULL,
             total REAL NOT NULL,
+            message TEXT,
             date_commande TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
