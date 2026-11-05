@@ -124,6 +124,7 @@ def contact():
 
         nom = request.form.get("nom", "").strip()
         email = request.form.get("email", "").strip()
+        message = request.form.get("message", "").strip()
 
         # Prix définis côté serveur
         prix_articles = {
@@ -196,10 +197,10 @@ def contact():
         try:
             connexion.execute(
                 """
-                INSERT INTO commandes (nom, email, articles, total)
+                INSERT INTO commandes (nom, email, articles, total, message)
                 VALUES (?, ?, ?, ?)
                 """,
-                (nom, email, json.dumps(commande, ensure_ascii=False), total)
+                (nom, email, json.dumps(commande, ensure_ascii=False), total, message)
             )
 
             connexion.commit()
