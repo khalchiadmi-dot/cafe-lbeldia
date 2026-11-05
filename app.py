@@ -98,6 +98,9 @@ Nouvelle commande reçue depuis Café Lbeldia.
 Nom : {nom}
 E-mail : {email_client}
 
+Message ou précision du client :
+{message if message else "Aucune précision"}
+
 Articles commandés :
 {details}
 
