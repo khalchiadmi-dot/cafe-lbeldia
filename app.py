@@ -57,7 +57,7 @@ def creer_base():
 
 
 # Envoyer un e-mail de confirmation interne de commande avec Brevo
-def envoyer_email_commande(nom, email_client, commande, total):
+def envoyer_email_commande(nom, email_client, commande, total, message):
 
     serveur = os.getenv("BREVO_SMTP_SERVER")
     port = int(os.getenv("BREVO_SMTP_PORT", "587"))
@@ -151,6 +151,38 @@ def contact():
             "lehrirah": {
                 "nom": "Lehrirah",
                 "prix": 4.50
+            },
+            "coca": {
+                "nom": "Coca-Cola",
+                "prix": 2.50
+            },
+            "coca_zero": {
+                "nom": "Coca-Cola zéro",
+                "prix": 2.50
+            },
+            "fanta": {
+                "nom": "Fanta",
+                "prix": 2.50
+            },
+            "sprite": {
+                "nom": "Sprite",
+                "prix": 2.50
+            },
+            "eau_plate": {
+                "nom": "Eau plate",
+                "prix": 1.50
+            },
+            "eau_petillante": {
+                "nom": "Eau pétillante",
+                "prix": 1.50
+            },
+            "jus_orange": {
+                "nom": "Jus d’orange",
+                "prix": 3.50
+            },
+            "jus_pomme": {
+                "nom": "Jus de pomme",
+                "prix": 3.50
             }
         }
 
@@ -198,7 +230,7 @@ def contact():
             connexion.execute(
                 """
                 INSERT INTO commandes (nom, email, articles, total, message)
-                VALUES (?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?)
                 """,
                 (nom, email, json.dumps(commande, ensure_ascii=False), total, message)
             )
@@ -210,7 +242,7 @@ def contact():
 
         # Envoyer une notification par e-mail
         try:
-            envoyer_email_commande(nom, email, commande, total)
+            envoyer_email_commande(nom, email, commande, total, message)
             flash("Merci ! Votre commande a été enregistrée et envoyée.")
 
         except Exception as erreur:
