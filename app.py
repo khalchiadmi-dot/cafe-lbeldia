@@ -51,6 +51,14 @@ def creer_base():
             date_commande TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
+# Ajouter la colonne message si elle n'existe pas encore
+    curseur = connexion.execute("PRAGMA table_info(commandes)")
+    colonnes = [ligne[1] for ligne in curseur.fetchall()]
+
+    if "message" not in colonnes:
+            connexion.execute(
+                "ALTER TABLE commandes ADD COLUMN message TEXT"
+            )
 
     connexion.commit()
     connexion.close()
