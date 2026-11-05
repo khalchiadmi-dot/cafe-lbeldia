@@ -13,6 +13,7 @@ body {
 
 /* Conteneur principal */
 .contact-container {
+    width: 60%;
     max-width: 650px;
     margin: 60px auto;
     padding: 40px;
