@@ -1,8 +1,28 @@
+
+/* =========================================
+   1. BASE DE LA PAGE
+========================================= */
+
 html {
     min-height: 100%;
     background-color: #e9a84e;
 }
-/* HEADER DE LA PAGE CUISINE */
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #4E342E;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: #5ba6bb;
+}
+
+/* =========================================
+   2. EN-TÊTE
+========================================= */
+
 header {
     background: linear-gradient(135deg, #176b78, #5ba6bb);
     color: #ffffff;
@@ -12,7 +32,7 @@ header {
 }
 
 header h1 {
-    color: #ffffff !important;
+    color: #ffffff;
     margin: 0 0 10px;
     text-shadow: 1px 1px 2px rgba(255, 250, 240, 0.5);
 }
@@ -23,24 +43,20 @@ header p {
     margin: 0;
 }
 
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
-        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #4E342E;
-    min-height: 100vh;
-    margin: 0;
-    display: flex; 
-    flex-direction: column;
-    background:#5ba6bb !important;
-       
-}
+/* =========================================
+   3. MENU ET ARTICLES
+========================================= */
 
 #menu-cuisine {
     background-color: #fffaf0;
     border: 1px solid #d6b995;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(78, 52, 46, 0.12);
-    flex: 1;
+    padding: 25px;
+    margin: 25px auto;
+    width: 90%;
+    max-width: 1100px;
+    box-sizing: border-box;
 }
 
 #menu-cuisine h2 {
@@ -71,12 +87,159 @@ body {
     height: 80px;
     object-fit: cover;
     border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
+#menu-cuisine .article img:hover {
+    transform: translateY(-6px) scale(1.05);
+}
+
+.article-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.prix {
+    font-weight: bold;
+    color: #83321f;
+}
+
+/* =========================================
+   4. FORMULAIRE DE COMMANDE
+========================================= */
+
+form {
+    width: 90%;
+    max-width: 700px;
+    margin: 25px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: #fffaf0;
+    border: 1px solid #d6b995;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(78, 52, 46, 0.12);
+}
+
+form h2,
+form h3 {
+    color: #8B4513;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 11px;
+    box-sizing: border-box;
+    border: 1px solid #c9ad8c;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 15px;
+    background-color: #ffffff;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: #176b78;
+    box-shadow: 0 0 5px rgba(23, 107, 120, 0.3);
+}
+
+form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* =========================================
+   5. BOUTON DE COMMANDE
+========================================= */
+
+form button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #176b78;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #104e59;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   6. MESSAGE DE CONFIRMATION
+========================================= */
+
+#messages-flash {
+    width: 90%;
+    max-width: 650px;
+    margin: 25px auto;
+    text-align: center;
+}
+
+.message-flash {
+    display: block;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.message-flash.success {
+    background-color: #e2f5df;
+    color: #286b32;
+    border: 2px solid #70b879;
+    animation: apparition 0.7s ease-out;
+}
+
+.message-flash.warning {
+    background-color: #fff0cf;
+    color: #805500;
+    border: 2px solid #e5b94e;
+}
+
+@keyframes apparition {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================
+   7. LIEN DE RETOUR
+========================================= */
+
 #retour-page-menu {
-    
     margin: 20px;
-    
+    text-align: center;
 }
 
 #retour-page-menu a {
@@ -90,55 +253,33 @@ body {
     text-decoration: underline;
 }
 
+/* =========================================
+   8. ADAPTATION AUX TÉLÉPHONES
+========================================= */
+
 @media (max-width: 600px) {
+
+    #menu-cuisine {
+        width: 94%;
+        padding: 15px;
+    }
+
     #menu-cuisine ul {
         grid-template-columns: 1fr;
     }
-}
-.article-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
 
-.prix {
-    font-weight: bold;
-    color: #83321f;
-}
-.article img {
-    transition: transform 0.3s ease;
-}
-
-.article img:hover {
-    transform: translateY(-6px) scale(1.08);
-}
-.message-flash {
-    padding: 20px;
-    margin: 25px auto;
-    max-width: 500px;
-    text-align: center;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.message-flash.success {
-    background-color: #e2f5df;
-    color: #286b32;
-    border: 2px solid #70b879;
-    animation: apparition 0.7s ease-out;
-}
-
-@keyframes apparition {
-    0% {
-        opacity: 0;
-        transform: scale(0.6);
+    #menu-cuisine .article img {
+        width: 85px;
+        height: 75px;
     }
-    70% {
-        opacity: 1;
-        transform: scale(1.08);
+
+    form {
+        width: 94%;
+        padding: 18px;
     }
-    100% {
-        transform: scale(1);
+
+    .message-flash {
+        font-size: 16px;
+        padding: 15px;
     }
 }
