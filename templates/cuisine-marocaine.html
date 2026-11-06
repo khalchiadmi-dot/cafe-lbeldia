@@ -97,12 +97,12 @@
 
             <!-- Messages Flask -->
               {% with messages = get_flashed_messages(with_categories=true) %}
-    {% for categorie, message in messages %}
+               {% for categorie, message in messages %}
         <div class="message-flash {{ categorie }}">
             {{ message }}
         </div>
-    {% endfor %}
-{% endwith %}
+             {% endfor %}
+         {% endwith %}
 
             <form action="{{ url_for('cuisine') }}" method="POST">
 
