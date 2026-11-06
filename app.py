@@ -10,6 +10,10 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, flash
 
 
+# ==================================================
+# CONFIGURATION
+# ==================================================
+
 # Charger les variables du fichier .env
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
 
@@ -20,52 +24,64 @@ if not app.secret_key:
     raise RuntimeError("FLASK_SECRET_KEY est absente du fichier .env")
 
 
-# Connexion à la base de données
+# ==================================================
+# CONNEXION À LA BASE DE DONNÉES
+# ==================================================
+
 def obtenir_connexion():
     return sqlite3.connect(
         os.path.join(os.path.dirname(__file__), "messages.db")
     )
 
 
-# Création des tables
+# ==================================================
+# CRÉATION DES TABLES
+# ==================================================
+
 def creer_base():
     connexion = obtenir_connexion()
 
-    connexion.execute("""
-        CREATE TABLE IF NOT EXISTS messages (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nom TEXT NOT NULL,
-            email TEXT NOT NULL,
-            message TEXT NOT NULL
-        )
-    """)
+    try:
+        connexion.execute("""
+            CREATE TABLE IF NOT EXISTS messages (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nom TEXT NOT NULL,
+                email TEXT NOT NULL,
+                message TEXT NOT NULL
+            )
+        """)
 
-    connexion.execute("""
-        CREATE TABLE IF NOT EXISTS commandes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nom TEXT NOT NULL,
-            email TEXT NOT NULL,
-            articles TEXT NOT NULL,
-            total REAL NOT NULL,
-            message TEXT,
-            date_commande TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
+        connexion.execute("""
+            CREATE TABLE IF NOT EXISTS commandes (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nom TEXT NOT NULL,
+                email TEXT NOT NULL,
+                articles TEXT NOT NULL,
+                total REAL NOT NULL,
+                message TEXT,
+                date_commande TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
 
-    # Ajouter la colonne message si elle n'existe pas encore
-    curseur = connexion.execute("PRAGMA table_info(commandes)")
-    colonnes = [ligne[1] for ligne in curseur.fetchall()]
+        # Ajouter la colonne message si elle n'existe pas
+        curseur = connexion.execute("PRAGMA table_info(commandes)")
+        colonnes = [ligne[1] for ligne in curseur.fetchall()]
 
-    if "message" not in colonnes:
-        connexion.execute(
-            "ALTER TABLE commandes ADD COLUMN message TEXT"
-        )
+        if "message" not in colonnes:
+            connexion.execute(
+                "ALTER TABLE commandes ADD COLUMN message TEXT"
+            )
 
-    connexion.commit()
-    connexion.close()
+        connexion.commit()
+
+    finally:
+        connexion.close()
 
 
-# Envoyer un e-mail de notification de commande avec Brevo
+# ==================================================
+# ENVOI D'EMAIL AVEC BREVO
+# ==================================================
+
 def envoyer_email_commande(nom, email_client, commande, total, message):
 
     serveur = os.getenv("BREVO_SMTP_SERVER")
@@ -116,13 +132,19 @@ Total : {total:.2f} €
         smtp.send_message(email)
 
 
-# Page d'accueil
+# ==================================================
+# PAGE D'ACCUEIL
+# ==================================================
+
 @app.route("/")
 def accueil():
     return render_template("index.html")
 
 
-# Page Cuisine et commande en ligne
+# ==================================================
+# PAGE CUISINE ET COMMANDE EN LIGNE
+# ==================================================
+
 @app.route("/cuisine", methods=["GET", "POST"])
 def cuisine():
 
@@ -216,12 +238,19 @@ def cuisine():
 
             try:
                 quantite = int(request.form.get(identifiant, "0"))
+
             except (ValueError, TypeError):
-                flash("Veuillez saisir des quantités valides.")
+                flash(
+                    "Veuillez saisir des quantités valides.",
+                    "warning"
+                )
                 return redirect(url_for("cuisine"))
 
             if quantite < 0 or quantite > 50:
-                flash("Chaque quantité doit être comprise entre 0 et 50.")
+                flash(
+                    "Chaque quantité doit être comprise entre 0 et 50.",
+                    "warning"
+                )
                 return redirect(url_for("cuisine"))
 
             if quantite > 0:
@@ -239,11 +268,18 @@ def cuisine():
 
         # Vérifier les informations du client
         if not nom or not email or "@" not in email:
-            flash("Veuillez saisir un nom et une adresse e-mail valides.")
+            flash(
+                "Veuillez saisir un nom et une adresse e-mail valides.",
+                "warning"
+            )
             return redirect(url_for("cuisine"))
 
+        # Vérifier qu'au moins un article est sélectionné
         if not commande:
-            flash("Veuillez sélectionner au moins un plat ou une boisson.")
+            flash(
+                "Veuillez sélectionner au moins un plat ou une boisson.",
+                "warning"
+            )
             return redirect(url_for("cuisine"))
 
         # Enregistrer la commande dans SQLite
@@ -271,22 +307,40 @@ def cuisine():
 
         # Envoyer une notification par e-mail
         try:
-            envoyer_email_commande(nom, email, commande, total, message)
-            flash("Merci ! Votre commande a été enregistrée et envoyée.")
+            envoyer_email_commande(
+                nom,
+                email,
+                commande,
+                total,
+                message
+            )
 
         except Exception as erreur:
             print("Erreur d'envoi e-mail :", erreur)
+
             flash(
-                "Votre commande est enregistrée, "
-                "mais l'e-mail n'a pas pu être envoyé."
+                "Votre commande est bien enregistrée, "
+                "mais l'e-mail de notification n'a pas pu être envoyé.",
+                "warning"
             )
+
+            return redirect(url_for("cuisine"))
+
+        # Confirmation de commande avec animation
+        flash(
+            "Votre commande a bien été enregistrée et envoyée !",
+            "success"
+        )
 
         return redirect(url_for("cuisine"))
 
     return render_template("cuisine-marocaine.html")
 
 
-# Page Contact : formulaire de message simple
+# ==================================================
+# PAGE CONTACT
+# ==================================================
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
 
@@ -296,10 +350,15 @@ def contact():
         email = request.form.get("email", "").strip()
         message = request.form.get("message", "").strip()
 
+        # Vérifier les informations du formulaire
         if not nom or not email or "@" not in email or not message:
-            flash("Veuillez remplir correctement tous les champs.")
+            flash(
+                "Veuillez remplir correctement tous les champs.",
+                "warning"
+            )
             return redirect(url_for("contact"))
 
+        # Enregistrer le message dans SQLite
         connexion = obtenir_connexion()
 
         try:
@@ -316,15 +375,26 @@ def contact():
         finally:
             connexion.close()
 
-        flash("✅ Votre commande a bien été enregistrée !", "success")
+        flash(
+            "Merci ! Votre message a bien été envoyé.",
+            "success"
+        )
+
         return redirect(url_for("contact"))
 
     return render_template("contact.html")
 
 
-# Création des tables au démarrage
+# ==================================================
+# CRÉATION DES TABLES AU DÉMARRAGE
+# ==================================================
+
 creer_base()
 
+
+# ==================================================
+# LANCEMENT DE L'APPLICATION
+# ==================================================
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
