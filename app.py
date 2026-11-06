@@ -316,7 +316,7 @@ def contact():
         finally:
             connexion.close()
 
-        flash("Merci ! Votre message a bien été envoyé.")
+        flash("✅ Votre commande a bien été enregistrée !", "success")
         return redirect(url_for("contact"))
 
     return render_template("contact.html")

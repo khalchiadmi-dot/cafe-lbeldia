@@ -112,3 +112,33 @@ body {
 .article img:hover {
     transform: translateY(-6px) scale(1.08);
 }
+.message-flash {
+    padding: 20px;
+    margin: 25px auto;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.message-flash.success {
+    background-color: #e2f5df;
+    color: #286b32;
+    border: 2px solid #70b879;
+    animation: apparition 0.7s ease-out;
+}
+
+@keyframes apparition {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -96,13 +96,13 @@
             <p>Choisissez vos plats et boissons et indiquez les quantités souhaitées.</p>
 
             <!-- Messages Flask -->
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <p class="flash-message">{{ message }}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
+              {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for categorie, message in messages %}
+        <div class="message-flash {{ categorie }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endwith %}
 
             <form action="{{ url_for('cuisine') }}" method="POST">
 
