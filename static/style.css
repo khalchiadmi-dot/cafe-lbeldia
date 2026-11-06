@@ -273,3 +273,35 @@ footer p {
     margin: 50px auto;
     text-align: center;
 }
+/* SECTION CONTACT */
+#contact {
+    background-color: rgba(255, 248, 235, 0.92);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(78, 52, 46, 0.20);
+}
+
+#contact h2 {
+    color: #4E342E;
+}
+
+#contact p {
+    color: #4E342E;
+}
+
+#contact .lien-contact {
+    display: inline-block;
+    background-color: #8B5E3C;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact .lien-contact:hover {
+    background-color: #6D452D;
+}
