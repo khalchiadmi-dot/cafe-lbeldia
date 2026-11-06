@@ -40,7 +40,7 @@ header h1 {
 }
 
 header p {
-    color: #d22766;
+    color: #702f47;
     font-size: 17px;
     margin: 0;
 }
@@ -304,4 +304,16 @@ footer p {
 
 #contact .lien-contact:hover {
     background-color: #6D452D;
+}
+.introduction p {
+    color: #3E2723;
+    background-color: rgba(255, 248, 235, 0.90);
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 20px auto;
+    text-align: center;
 }
