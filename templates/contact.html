@@ -7,15 +7,15 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style_contact.css') }}">
 
-    <title>Commande - Café Lbeldia</title>
+    <title>Contact - Café Lbeldia</title>
 </head>
 
 <body>
 
     <div class="contact-container">
 
-        <h1>Commander chez Café Lbeldia</h1>
-        <p>Choisissez vos plats et indiquez les quantités souhaitées.</p>
+        <h1>Contactez Café Lbeldia</h1>
+        <p>Une question ou une demande particulière ? Écrivez-nous !</p>
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -27,206 +27,30 @@
 
         <form action="{{ url_for('contact') }}" method="POST">
 
-            <!-- Informations du client -->
-            <h2>Vos informations</h2>
-
             <label for="nom">Votre nom :</label>
             <input type="text" id="nom" name="nom" required>
 
             <label for="email">Votre e-mail :</label>
             <input type="email" id="email" name="email" required>
 
-            <!-- Articles -->
-            <h2>Votre commande</h2>
+            <label for="message">Votre message :</label>
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Écrivez votre message ici..."
+                rows="6"
+                required
+            ></textarea>
 
-            <div class="article-commande">
-                <label for="viande_pruneaux">
-                    Viande aux pruneaux — 12,80 €
-                </label>
-                <input
-                    type="number"
-                    id="viande_pruneaux"
-                    name="viande_pruneaux"
-                    min="0"
-                    value="0"
-                    data-prix="12.80"
-                    class="quantite"
-                >
-            </div>
-
-            <div class="article-commande">
-                <label for="viande_legumes">
-                    Viande avec légumes et zitoun — 12,80 €
-                </label>
-                <input
-                    type="number"
-                    id="viande_legumes"
-                    name="viande_legumes"
-                    min="0"
-                    value="0"
-                    data-prix="12.80"
-                    class="quantite"
-                >
-            </div>
-
-            <div class="article-commande">
-                <label for="viande_raisins">
-                    Viande avec raisins secs — 12,80 €
-                </label>
-                <input
-                    type="number"
-                    id="viande_raisins"
-                    name="viande_raisins"
-                    min="0"
-                    value="0"
-                    data-prix="12.80"
-                    class="quantite"
-                >
-            </div>
-
-            <div class="article-commande">
-                <label for="couscous">
-                    Couscous — 10,00 €
-                </label>
-                <input
-                    type="number"
-                    id="couscous"
-                    name="couscous"
-                    min="0"
-                    value="0"
-                    data-prix="10.00"
-                    class="quantite"
-                >
-            </div>
-
-            <div class="article-commande">
-                <label for="kefta">
-                    Kefta à la tomate — 9,60 €
-                </label>
-                <input
-                    type="number"
-                    id="kefta"
-                    name="kefta"
-                    min="0"
-                    value="0"
-                    data-prix="9.60"
-                    class="quantite"
-                >
-            </div>
-
-            <div class="article-commande">
-                <label for="lehrirah">
-                    Lehrirah — 4,50 € le bol
-                </label>
-                <input
-                    type="number"
-                    id="lehrirah"
-                    name="lehrirah"
-                    min="0"
-                    value="0"
-                    data-prix="4.50"
-                    class="quantite"
-                >
-            </div>
-                        <!-- Boissons -->
-            <h2>Boissons</h2>
-
-            <div class="article-commande">
-                <label for="coca">Coca-Cola — 2,50 €</label>
-                <input type="number" id="coca" name="coca"
-                       min="0" value="0" data-prix="2.50"
-                       class="quantite">
-            </div>
-
-            <div class="article-commande">
-                <label for="coca_zero">Coca-Cola zéro — 2,50 €</label>
-                <input type="number" id="coca_zero" name="coca_zero"
-                       min="0" value="0" data-prix="2.50"
-                       class="quantite">
-            </div>
-
-            <div class="article-commande">
-                <label for="fanta">Fanta — 2,50 €</label>
-                <input type="number" id="fanta" name="fanta"
-                       min="0" value="0" data-prix="2.50"
-                       class="quantite">
-            </div>
-
-            <div class="article-commande">
-                <label for="sprite">Sprite — 2,50 €</label>
-                <input type="number" id="sprite" name="sprite"
-                       min="0" value="0" data-prix="2.50"
-                       class="quantite">
-            </div>
-
-            <div class="article-commande">
-                <label for="eau_plate">Eau plate — 1,50 €</label>
-                <input type="number" id="eau_plate" name="eau_plate"
-                       min="0" value="0" data-prix="1.50"
-                       class="quantite">
-            </div>
-
-            <div class="article-commande">
-                <label for="eau_petillante">Eau pétillante — 1,50 €</label>
-                <input type="number" id="eau_petillante" name="eau_petillante"
-                       min="0" value="0" data-prix="1.50"
-                       class="quantite">
-            </div>
-
-            <div class="article-commande">
-                <label for="jus_orange">Jus d’orange — 3,50 €</label>
-                <input type="number" id="jus_orange" name="jus_orange"
-                       min="0" value="0" data-prix="3.50"
-                       class="quantite">
-            </div>
-
-            <div class="article-commande">
-                <label for="jus_pomme">Jus de pomme — 3,50 €</label>
-                <input type="number" id="jus_pomme" name="jus_pomme"
-                       min="0" value="0" data-prix="3.50"
-                       class="quantite">
-            </div>
-
-            <!-- Total calculé en JavaScript -->
-            <div class="total-commande">
-                <strong>Total estimé :</strong>
-                <span id="total">0,00 €</span>
-            </div>
-
-            <label for="message">Message ou précision sur votre commande :</label>
-            <textarea id="message" name="message" placeholder="Exemple : sans épices, sans olives..." rows="4"></textarea>
-
-            <button type="submit">Envoyer ma commande</button>
+            <button type="submit">Envoyer mon message</button>
 
         </form>
 
-        <a href="/" class="back-link">Retour à l'accueil</a>
+        <a href="{{ url_for('accueil') }}" class="back-link">
+            Retour à l'accueil
+        </a>
 
     </div>
-
-    <script>
-        const quantites = document.querySelectorAll(".quantite");
-        const totalElement = document.getElementById("total");
-
-        function calculerTotal() {
-            let total = 0;
-
-            quantites.forEach(function(input) {
-                const quantite = Number(input.value) || 0;
-                const prix = Number(input.dataset.prix);
-
-                total += quantite * prix;
-            });
-
-            totalElement.textContent = total.toFixed(2).replace(".", ",") + " €";
-        }
-
-        quantites.forEach(function(input) {
-            input.addEventListener("input", calculerTotal);
-        });
-
-        calculerTotal();
-    </script>
 
 </body>
 </html>

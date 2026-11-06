@@ -51,20 +51,21 @@ def creer_base():
             date_commande TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
-# Ajouter la colonne message si elle n'existe pas encore
+
+    # Ajouter la colonne message si elle n'existe pas encore
     curseur = connexion.execute("PRAGMA table_info(commandes)")
     colonnes = [ligne[1] for ligne in curseur.fetchall()]
 
     if "message" not in colonnes:
-            connexion.execute(
-                "ALTER TABLE commandes ADD COLUMN message TEXT"
-            )
+        connexion.execute(
+            "ALTER TABLE commandes ADD COLUMN message TEXT"
+        )
 
     connexion.commit()
     connexion.close()
 
 
-# Envoyer un e-mail de confirmation interne de commande avec Brevo
+# Envoyer un e-mail de notification de commande avec Brevo
 def envoyer_email_commande(nom, email_client, commande, total, message):
 
     serveur = os.getenv("BREVO_SMTP_SERVER")
@@ -121,15 +122,9 @@ def accueil():
     return render_template("index.html")
 
 
-# Page Cuisine
-@app.route("/cuisine")
+# Page Cuisine et commande en ligne
+@app.route("/cuisine", methods=["GET", "POST"])
 def cuisine():
-    return render_template("cuisine-marocaine.html")
-
-
-# Page Commande
-@app.route("/contact", methods=["GET", "POST"])
-def contact():
 
     if request.method == "POST":
 
@@ -148,7 +143,7 @@ def contact():
                 "prix": 12.80
             },
             "viande_raisins": {
-                "nom": "Viande avec raisins secs",
+                "nom": "Viande aux raisins secs",
                 "prix": 12.80
             },
             "couscous": {
@@ -188,12 +183,28 @@ def contact():
                 "prix": 1.50
             },
             "jus_orange": {
-                "nom": "Jus d’orange",
+                "nom": "Jus d'orange",
                 "prix": 3.50
             },
             "jus_pomme": {
                 "nom": "Jus de pomme",
                 "prix": 3.50
+            },
+            "cafe_russe": {
+                "nom": "Café russe",
+                "prix": 2.50
+            },
+            "expresso": {
+                "nom": "Café expresso",
+                "prix": 2.50
+            },
+            "the_menthe": {
+                "nom": "Thé à la menthe",
+                "prix": 3.50
+            },
+            "mhersa": {
+                "nom": "Mhersa",
+                "prix": 2.50
             }
         }
 
@@ -207,11 +218,11 @@ def contact():
                 quantite = int(request.form.get(identifiant, "0"))
             except (ValueError, TypeError):
                 flash("Veuillez saisir des quantités valides.")
-                return redirect(url_for("contact"))
+                return redirect(url_for("cuisine"))
 
             if quantite < 0 or quantite > 50:
                 flash("Chaque quantité doit être comprise entre 0 et 50.")
-                return redirect(url_for("contact"))
+                return redirect(url_for("cuisine"))
 
             if quantite > 0:
                 prix = informations["prix"]
@@ -226,13 +237,14 @@ def contact():
 
         total = round(total, 2)
 
+        # Vérifier les informations du client
         if not nom or not email or "@" not in email:
             flash("Veuillez saisir un nom et une adresse e-mail valides.")
-            return redirect(url_for("contact"))
+            return redirect(url_for("cuisine"))
 
         if not commande:
-            flash("Veuillez sélectionner au moins un plat.")
-            return redirect(url_for("contact"))
+            flash("Veuillez sélectionner au moins un plat ou une boisson.")
+            return redirect(url_for("cuisine"))
 
         # Enregistrer la commande dans SQLite
         connexion = obtenir_connexion()
@@ -243,7 +255,13 @@ def contact():
                 INSERT INTO commandes (nom, email, articles, total, message)
                 VALUES (?, ?, ?, ?, ?)
                 """,
-                (nom, email, json.dumps(commande, ensure_ascii=False), total, message)
+                (
+                    nom,
+                    email,
+                    json.dumps(commande, ensure_ascii=False),
+                    total,
+                    message
+                )
             )
 
             connexion.commit()
@@ -258,8 +276,47 @@ def contact():
 
         except Exception as erreur:
             print("Erreur d'envoi e-mail :", erreur)
-            flash("Votre commande est enregistrée, mais l'e-mail n'a pas pu être envoyé.")
+            flash(
+                "Votre commande est enregistrée, "
+                "mais l'e-mail n'a pas pu être envoyé."
+            )
 
+        return redirect(url_for("cuisine"))
+
+    return render_template("cuisine-marocaine.html")
+
+
+# Page Contact : formulaire de message simple
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+
+    if request.method == "POST":
+
+        nom = request.form.get("nom", "").strip()
+        email = request.form.get("email", "").strip()
+        message = request.form.get("message", "").strip()
+
+        if not nom or not email or "@" not in email or not message:
+            flash("Veuillez remplir correctement tous les champs.")
+            return redirect(url_for("contact"))
+
+        connexion = obtenir_connexion()
+
+        try:
+            connexion.execute(
+                """
+                INSERT INTO messages (nom, email, message)
+                VALUES (?, ?, ?)
+                """,
+                (nom, email, message)
+            )
+
+            connexion.commit()
+
+        finally:
+            connexion.close()
+
+        flash("Merci ! Votre message a bien été envoyé.")
         return redirect(url_for("contact"))
 
     return render_template("contact.html")

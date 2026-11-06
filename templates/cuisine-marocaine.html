@@ -13,6 +13,9 @@
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style_cuisine.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style_contact.css') }}">
 </head>
 
 <body>
@@ -24,72 +27,227 @@
 
     <main id="menu-cuisine">
 
+        <!-- NOS PLATS -->
         <h2>Nos plats marocains</h2>
 
         <ul>
-         
+
             <li class="article">
                 <img src="{{ url_for('static', filename='images/cuisine/taj_belberqoq.jpg') }}"
                      alt="Tajine de viande aux pruneaux">
-            <div class="article-info">
-                <span>Viande aux pruneaux</span>
-                <span class="prix">12.80 €</span>
-            </div>
+                <div class="article-info">
+                    <span>Viande aux pruneaux</span>
+                    <span class="prix">12,80 €</span>
+                </div>
             </li>
-        
-         
+
             <li class="article">
                 <img src="{{ url_for('static', filename='images/cuisine/taj_patate_carote.jpg') }}"
                      alt="Tajine de viande avec pommes de terre et carottes">
-        <div class="article-info">
-                <span>Viande avec légumes et zitoun</span>
-                <span class="prix">12 €</span>
-        </div>
+                <div class="article-info">
+                    <span>Viande avec légumes et zitoun</span>
+                    <span class="prix">12,80 €</span>
+                </div>
             </li>
-         
-         
-            <li class="article">
-                
-                 <img src="{{ url_for('static', filename='images/cuisine/taj_zbib.jpg') }}"
-                     alt="Viande avec des raisins secs">
-        <div class="article-info">
-                 <span>Viande aux raisins secs</span>
-                 <span class="prix">12.50 €</span>
-        </div>
-            </li>
-         
 
-         
+            <li class="article">
+                <img src="{{ url_for('static', filename='images/cuisine/taj_zbib.jpg') }}"
+                     alt="Viande avec des raisins secs">
+                <div class="article-info">
+                    <span>Viande aux raisins secs</span>
+                    <span class="prix">12,80 €</span>
+                </div>
+            </li>
 
             <li class="article">
                 <img src="{{ url_for('static', filename='images/cuisine/couscous.jpg') }}"
                      alt="Couscous marocain">
-        <div class="article-info">
-                <span><strong>Couscous</strong></span>
-                <span class="prix">10 €</span>
-        </div>
+                <div class="article-info">
+                    <span><strong>Couscous</strong></span>
+                    <span class="prix">10,00 €</span>
+                </div>
             </li>
-          
+
             <li class="article">
                 <img src="{{ url_for('static', filename='images/cuisine/kefta_au_tomates.jpg') }}"
                      alt="Kefta à la tomate">
-             <div class="article-info">
-                <span>Kefta à la tomate</span>
-                <span class="prix"> 9.60 €</span>
-             </div>
+                <div class="article-info">
+                    <span>Kefta à la tomate</span>
+                    <span class="prix">9,60 €</span>
+                </div>
             </li>
-        
+
             <li class="article">
                 <img src="{{ url_for('static', filename='images/cuisine/lehrirah.jpg') }}"
                      alt="Harira marocaine">
-             <div class="article-info">
-                <span>Lehrirah</span>
-                <span class="prix">4.50 € le bol</span>
-             </div>
+                <div class="article-info">
+                    <span>Lehrirah</span>
+                    <span class="prix">4,50 € le bol</span>
+                </div>
             </li>
-          
 
         </ul>
+
+        <!-- FORMULAIRE DE COMMANDE -->
+        <section class="contact-container">
+
+            <h1>Commander en ligne</h1>
+
+            <p>Choisissez vos plats et boissons et indiquez les quantités souhaitées.</p>
+
+            <!-- Messages Flask -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="flash-message">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('cuisine') }}" method="POST">
+
+                <!-- INFORMATIONS CLIENT -->
+                <h2>Vos informations</h2>
+
+                <label for="nom">Votre nom :</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="email">Votre e-mail :</label>
+                <input type="email" id="email" name="email" required>
+
+                <!-- COMMANDE DES PLATS -->
+                <h2>Vos plats</h2>
+
+                <div class="article-commande">
+                    <label for="viande_pruneaux">Viande aux pruneaux — 12,80 €</label>
+                    <input type="number" id="viande_pruneaux" name="viande_pruneaux"
+                           min="0" max="50" value="0" data-prix="12.80" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="viande_legumes">Viande avec légumes et zitoun — 12,80 €</label>
+                    <input type="number" id="viande_legumes" name="viande_legumes"
+                           min="0" max="50" value="0" data-prix="12.80" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="viande_raisins">Viande aux raisins secs — 12,80 €</label>
+                    <input type="number" id="viande_raisins" name="viande_raisins"
+                           min="0" max="50" value="0" data-prix="12.80" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="couscous">Couscous — 10,00 €</label>
+                    <input type="number" id="couscous" name="couscous"
+                           min="0" max="50" value="0" data-prix="10.00" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="kefta">Kefta à la tomate — 9,60 €</label>
+                    <input type="number" id="kefta" name="kefta"
+                           min="0" max="50" value="0" data-prix="9.60" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="lehrirah">Lehrirah — 4,50 € le bol</label>
+                    <input type="number" id="lehrirah" name="lehrirah"
+                           min="0" max="50" value="0" data-prix="4.50" class="quantite">
+                </div>
+
+                <!-- COMMANDE DES BOISSONS -->
+                <h2>Vos boissons</h2>
+
+                <div class="article-commande">
+                    <label for="coca">Coca-Cola — 2,50 €</label>
+                    <input type="number" id="coca" name="coca"
+                           min="0" max="50" value="0" data-prix="2.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="coca_zero">Coca-Cola zéro — 2,50 €</label>
+                    <input type="number" id="coca_zero" name="coca_zero"
+                           min="0" max="50" value="0" data-prix="2.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="fanta">Fanta — 2,50 €</label>
+                    <input type="number" id="fanta" name="fanta"
+                           min="0" max="50" value="0" data-prix="2.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="sprite">Sprite — 2,50 €</label>
+                    <input type="number" id="sprite" name="sprite"
+                           min="0" max="50" value="0" data-prix="2.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="eau_plate">Eau plate — 1,50 €</label>
+                    <input type="number" id="eau_plate" name="eau_plate"
+                           min="0" max="50" value="0" data-prix="1.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="eau_petillante">Eau pétillante — 1,50 €</label>
+                    <input type="number" id="eau_petillante" name="eau_petillante"
+                           min="0" max="50" value="0" data-prix="1.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="jus_orange">Jus d'orange — 3,50 €</label>
+                    <input type="number" id="jus_orange" name="jus_orange"
+                           min="0" max="50" value="0" data-prix="3.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="jus_pomme">Jus de pomme — 3,50 €</label>
+                    <input type="number" id="jus_pomme" name="jus_pomme"
+                           min="0" max="50" value="0" data-prix="3.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="cafe_russe">Café russe — 2,50 €</label>
+                    <input type="number" id="cafe_russe" name="cafe_russe"
+                           min="0" max="50" value="0" data-prix="2.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="expresso">Café expresso — 2,50 €</label>
+                    <input type="number" id="expresso" name="expresso"
+                           min="0" max="50" value="0" data-prix="2.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="the_menthe">Thé à la menthe — 3,50 €</label>
+                    <input type="number" id="the_menthe" name="the_menthe"
+                           min="0" max="50" value="0" data-prix="3.50" class="quantite">
+                </div>
+
+                <div class="article-commande">
+                    <label for="mhersa">Mhersa — 2,50 €</label>
+                    <input type="number" id="mhersa" name="mhersa"
+                           min="0" max="50" value="0" data-prix="2.50" class="quantite">
+                </div>
+
+                <!-- TOTAL -->
+                <div class="total-commande">
+                    <strong>Total estimé :</strong>
+                    <span id="total">0,00 €</span>
+                </div>
+
+                <!-- MESSAGE CLIENT -->
+                <label for="message">Message ou précision sur votre commande :</label>
+
+                <textarea id="message"
+                          name="message"
+                          placeholder="Exemple : sans épices, sans olives..."
+                          rows="4"></textarea>
+
+                <button type="submit">Envoyer ma commande</button>
+
+            </form>
+
+        </section>
 
     </main>
 
@@ -98,6 +256,32 @@
             ← Retour à la page d'accueil
         </a>
     </footer>
+
+    <!-- CALCUL AUTOMATIQUE DU TOTAL -->
+    <script>
+        const quantites = document.querySelectorAll(".quantite");
+        const totalElement = document.getElementById("total");
+
+        function calculerTotal() {
+            let total = 0;
+
+            quantites.forEach(function(input) {
+                const quantite = Number(input.value) || 0;
+                const prix = Number(input.dataset.prix);
+
+                total += quantite * prix;
+            });
+
+            totalElement.textContent =
+                total.toFixed(2).replace(".", ",") + " €";
+        }
+
+        quantites.forEach(function(input) {
+            input.addEventListener("input", calculerTotal);
+        });
+
+        calculerTotal();
+    </script>
 
 </body>
 </html>

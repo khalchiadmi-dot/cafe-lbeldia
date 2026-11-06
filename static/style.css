@@ -1,18 +1,19 @@
 
+/* =================================
+   CAFÉ LBELDIA - PAGE D'ACCUEIL
+================================= */
 
+/* Fond général */
 html {
     min-height: 100%;
-    background-color: #e9a84e;
+    background-color: #f5e6cc;
 }
 
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
-        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
     color: #4E342E;
-
     min-height: 100vh;
     margin: 0;
-    
     display: flex;
     flex-direction: column;
 
@@ -21,234 +22,159 @@ body {
             rgba(245, 235, 221, 0.65),
             rgba(245, 235, 221, 0.65)
         ),
-        url("./images/porte1_maroc.jpg") center center / cover fixed no-repeat;
+        url("./images/porte1_maroc.jpg")
+        center center / cover fixed no-repeat;
 }
 
+/* En-tête */
+header {
+    text-align: center;
+    padding: 35px 15px;
+    background-color: rgba(255, 244, 223, 0.92);
+    border-bottom: 2px solid #d6b995;
+}
 
-h1 {
+header h1 {
     color: #83321f;
-    text-align: center;
+    font-size: 32px;
+    margin: 0 0 12px;
 }
 
-h2 {
-    
-    font-size: 20px;
-    margin: 8px 0;
-
-    color: #A0522D;
+header p {
+    color: #70452f;
+    font-size: 18px;
+    margin: 0;
 }
 
-#menu {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
-    
-    align-items: start;
-    flex: 1;
-}
-
-#boissons,
-#patisseries {
-    flex: 1;
-    padding: 20px;
-    background-color: rgba(255, 250, 240, 0.3);
-    border: 1px solid #D6B995;
-    border-radius: 10px;
-}
-
-#titre_menu {
-    text-align: center;
-}
-
-h1 {
-    text-align: center;
-    font-size: 28px;
-    margin: 10px 0;
-}
-
-h2 {
-    color: #8B4513;
-}
-.article{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-.article img {
-    width: 70px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-#commande {
-    text-align: center;
-    margin: 8px 0;
-    padding: 5px 10px;
-    background-color: rgba(255, 250, 240, 0.70);
-    border-radius: 10px;
-}
-
-#commande h2 {
-    margin: 5px 0;
-    padding:  0;
-    color: #83321f;
-}
-#commande p { 
-margin: 5px 0 ;
-}
-
-#commande button {
-    background-color: #83321f;
-    color: #fffaf0;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#commande button:hover {
-    background-color: #d78159;
-}
-
-#fenetre-commande {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.65);
-    z-index: 1000;
-    overflow-y: auto;
-    padding: 20px;
-}
-
-.fenetre-cachee {
-    display: none;
-}
-
-.contenu-commande {
-    background: #F5EBDD;
-    color: #4E342E;
+/* Contenu principal */
+main {
     width: 90%;
-    max-width: 380px;
-    box-sizing: border-box;
-    margin: 20px auto;
-    padding: 18px;
-    border-radius: 12px;
+    max-width: 900px;
+    margin: 45px auto;
+    flex: 1;
 }
 
-#fermer-commande {
-    float: right;
-    cursor: pointer;
+/* Présentation */
+.presentation {
+    text-align: center;
+    padding: 35px 25px;
+    background-color: rgba(255, 250, 240, 0.88);
+    border: 1px solid #d6b995;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(78, 52, 46, 0.12);
 }
 
-#formulaire-commande label {
-    display: block;
-    margin-top: 8px;
+.presentation h2 {
+    color: #8B4513;
+    font-size: 25px;
+    margin-bottom: 18px;
 }
 
-#formulaire-commande input,
-#formulaire-commande textarea {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 7px;
-    margin-top: 3px;
-    
-}
-#formulaire-commande textarea {
-    height: 55px;
+.presentation p {
+    color: #70452f;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
 }
 
-#formulaire-commande button[type="submit"] {
-    margin-top: 20px;
-    padding: 12px;
-    width: 100%;
-    background: #83321f;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-@keyframes rebond {
-    0% {
-        transform: translateY(0);
-    }
-
-    30% {
-        transform: translateY(-30px);
-    }
-
-    50% {
-        transform: translateY(0);
-    }
-
-    70% {
-        transform: translateY(-15px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+/* Lien vers la cuisine */
+.lien-menu {
+    display: inline-block;
+    background-color: #e8c99b;
+    color: #70452f;
+    padding: 13px 25px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.rebond {
-    animation: rebond 0.6s ease;
+.lien-menu:hover {
+    background-color: #d9b47e;
 }
-footer {
-    margin-top: auto;
-}
-@media (max-width: 600px) {
-    #menu {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-}
+
+/* Contact */
 .lien-cuisine {
     text-align: center;
-    background-color: #f5e6cc;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: rgba(255, 244, 223, 0.95);
+    padding: 25px 20px;
+    margin: 30px auto;
+    border: 1px solid #e4c99f;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(78, 52, 46, 0.10);
 }
 
 .lien-cuisine p {
-    color: #8b4513;
+    color: #70452f;
+    font-size: 17px;
+    margin: 0 0 18px;
 }
 
 .lien-cuisine a {
-    color: #a52a2a;
+    display: inline-block;
+    background-color: #f2d5a5;
+    color: #70452f;
+    padding: 13px 28px;
+    border-radius: 9px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
 }
 
 .lien-cuisine a:hover {
-    color: #d2691e;
-}
-/* AFFICHAGE DES PRIX */
-.article {
-    display: grid;
-    grid-template-columns: 70px minmax(0, 1fr) 90px;
-    align-items: start;
-    column-gap: 10px;
-    margin-bottom: 15px;
+    background-color: #e8bd7e;
+    color: #55321f;
 }
 
-.article img {
-    width: 70px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 8px;
-    align-self: center;
+/* Pied de page */
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 18px;
+    background-color: rgba(255, 244, 223, 0.92);
+    color: #70452f;
+    border-top: 1px solid #d6b995;
 }
 
-.article > span:not(.prix) {
-    min-width: 0;
+footer p {
+    margin: 0;
 }
 
-.article .prix {
-    color: #83321f;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 1.3;
-    white-space: normal;
-    text-align: left;
+/* Adaptation téléphone */
+@media (max-width: 600px) {
+
+    header {
+        padding: 25px 12px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    main {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+    .presentation {
+        padding: 25px 18px;
+    }
+
+    .presentation h2 {
+        font-size: 21px;
+    }
+
+    .presentation p {
+        font-size: 15px;
+    }
+
+    .lien-cuisine {
+        padding: 22px 15px;
+    }
 }

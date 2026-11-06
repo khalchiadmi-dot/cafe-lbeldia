@@ -1,274 +1,131 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Café Lbeldia - Accueil</title>
 
-    <!-- CSS -->
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <header>
-        <h1>Café Lbeldia 🇲🇦</h1>
-    </header>
+<header>
+    <h1>Bienvenue chez Café Lbeldia</h1>
+    <p>Les saveurs du Maroc, préparées avec passion</p>
+</header>
 
-    <main>
+<main>
 
-        <h2 id="titre_menu">MENU</h2>
-
-        <div id="menu">
-
-            <!-- BOISSONS -->
-            <div id="boissons">
-                <strong>Boissons</strong>
-
-            <ul>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/boissons/expresso.jpg') }}"
-                             alt="Café expresso">
-                        <span>Café expresso</span>
-                        <span class="prix">2.50 €</span>
-                    </li>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/boissons/cafe_au_lait.jpg') }}"
-                             alt="Café au lait">
-                        <span>Café au lait</span>
-                        <span class="prix">2.50 €</span>
-                    </li>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/boissons/capuchino.jpg') }}"
-                             alt="Cappuccino">
-                        <span>Cappuccino</span>
-                        <span class="prix">2.50 €</span>
-                    </li>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/boissons/cafe_russe.jpg') }}"
-                             alt="Café russe">
-                        <span>Café russe</span>
-                        <span class="prix">2.50 €</span>
-                    </li>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/boissons/thé.jpg') }}"
-                             alt="Thé à la menthe">
-                        <span>Thé à la menthe</span>
-                        <span class="prix">3.50 € </span>
-                    </li>
-
-                  <li class="article">
-                   <div class="article-info">
-                       <span>Mhersa</span>
-                       <span class="prix">2,50 €</span>
-                   </div>
-                  </li>
-                  <li class="article">
-    <div class="article-info">
-        <span>Coca-Cola</span>
-        <span class="prix">2,50 €</span>
-    </div>
-</li>
-
-<li class="article">
-    <div class="article-info">
-        <span>Coca-Cola zéro</span>
-        <span class="prix">2,50 €</span>
-    </div>
-</li>
-
-<li class="article">
-    <div class="article-info">
-        <span>Fanta</span>
-        <span class="prix">2,50 €</span>
-    </div>
-</li>
-
-<li class="article">
-    <div class="article-info">
-        <span>Sprite</span>
-        <span class="prix">2,50 €</span>
-    </div>
-</li>
-
-<li class="article">
-    <div class="article-info">
-        <span>Eau plate</span>
-        <span class="prix">1,50 €</span>
-    </div>
-</li>
-
-<li class="article">
-    <div class="article-info">
-        <span>Eau pétillante</span>
-        <span class="prix">1,50 €</span>
-    </div>
-</li>
-
-<li class="article">
-    <div class="article-info">
-        <span>Jus d’orange</span>
-        <span class="prix">3,50 €</span>
-    </div>
-</li>
-
-<li class="article">
-    <div class="article-info">
-        <span>Jus de pomme</span>
-        <span class="prix">3,50 €</span>
-    </div>
-</li>
-
-                </ul>
-            </div>
-
-            <!-- PATISSERIES -->
-            <div id="patisseries">
-                <strong>Pâtisseries marocaines</strong>
-
-                <ul>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/pattisseries/msemen.jpg') }}"
-                             alt="Msemen">
-                        <span>Msemen</span>
-                        <span class="prix">1.5O €/la piéce</span>
-                    </li>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/pattisseries/ftor_rbate.jpg') }}"
-                             alt="Ftour rbaté">
-                        <span>Ftour rbaté</span>
-                        <span class="prix">12 €</span>
-                    </li>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/pattisseries/بغرير.jpeg') }}"
-                             alt="Beghrir">
-                             <div class="article-info">
-                        <span>Beghrir</span>
-                        <span class="prix">0.70 €/la piéce</span>
-                             </div>
-                    </li>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/pattisseries/ke3b_leghzal.jpg') }}"
-                             alt="Kaab el ghazal">
-                        <div class="article-info">
-                         <span>Ke3b_leghzal </span>
-                         <span class="prix">0.80 €/la piéce</span>
-                        </div>
-                    </li>
-
-                    <li class="article">
-                        <img src="{{ url_for('static', filename='images/pattisseries/chfenj.jpg') }}"
-                             alt="Chfenj">
-                        <span>Chfenj</span>
-                        <span class="prix">1 €/la piéce</span>
-                    </li>
-
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- LIEN VERS LA CUISINE -->
-        <section>
-            <div class="lien-cuisine">
-                <p>
-                    <strong>Envie de manger ? Découvrez nos plats marocains !</strong>
-                </p>
-
-                <a href="{{ url_for('cuisine') }}">
-                    Découvrir nos plats traditionnels
-                </a>
-            </div>
-        </section>
-
-        <!-- COMMANDE -->
-        <section id="commande">
-
-            <h2>Envie de vous régaler ?</h2>
-
-            <p>Retrouvez les saveurs du Maroc chez vous !</p>
-
-            <button id="ouvrir-commande" type="button">
-                Commander en ligne
-            </button>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>Café Lbeldia - Saveurs et traditions marocaines</p>
-
-        <a href="{{ url_for('contact') }}">
-            Nous contacter
+    <section class="presentation">
+        <h2>Bienvenue dans notre univers marocain</h2>
+        <p>
+            Découvrez nos boissons et nos pâtisseries traditionnelles,
+            préparées avec soin et gourmandise.
+        </p>
+        <a class="lien-menu" href="{{ url_for('cuisine') }}">
+            Découvrir notre cuisine marocaine
         </a>
-    </footer>
+    </section>
 
-    <!-- FENETRE DE COMMANDE -->
-    <div id="fenetre-commande" class="fenetre-cachee">
+    <h2 class="titre-menu">Nos boissons et nos gourmandises</h2>
 
-        <div class="contenu-commande">
+    <section id="menu">
 
-            <button id="fermer-commande" type="button">✕</button>
+        <!-- BOISSONS -->
+        <div id="boissons">
+            <h2>Nos boissons</h2>
 
-            <h2>Votre commande - Café Lbeldia</h2>
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/cafe_au_lait.jpg') }}"
+                     alt="Café au lait">
+                <span>Café au lait</span>
+                <span class="prix">2,50 €</span>
+            </div>
 
-            <form id="formulaire-commande">
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/cafe_russe.jpg') }}"
+                     alt="Café russe">
+                <span>Café russe</span>
+                <span class="prix">2,50 €</span>
+            </div>
 
-                <label for="nom">Votre nom :</label>
-                <input type="text" id="nom" name="nom" required>
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/capuchon.jpg') }}"
+                     alt="Cappuccino">
+                <span>Cappuccino</span>
+                <span class="prix">2,50 €</span>
+            </div>
 
-                <label for="telephone">Votre téléphone :</label>
-                <input type="tel" id="telephone" name="telephone" required>
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/express.jpg') }}"
+                     alt="Expresso">
+                <span>Expresso</span>
+                <span class="prix">2,50 €</span>
+            </div>
 
-                <h3>Choisissez vos articles</h3>
-
-                <label for="expresso">Café expresso :</label>
-                <input type="number" id="expresso" name="expresso"
-                       min="0" value="0">
-
-                <label for="cappuccino">Cappuccino :</label>
-                <input type="number" id="cappuccino" name="cappuccino"
-                       min="0" value="0">
-
-                <label for="msemen">Msemen :</label>
-                <input type="number" id="msemen" name="msemen"
-                       min="0" value="0">
-
-                <label for="beghrir">Beghrir :</label>
-                <input type="number" id="beghrir" name="beghrir"
-                       min="0" value="0">
-
-                <label for="adresse">Adresse de livraison :</label>
-                <textarea id="adresse" name="adresse" required></textarea>
-
-                <button type="submit">
-                    Envoyer ma commande
-                </button>
-
-            </form>
-
-            <p id="message-commande"></p>
-
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/the.jpg') }}"
+                     alt="Thé marocain à la menthe">
+                <span>Thé marocain à la menthe</span>
+                <span class="prix">3,50 €</span>
+            </div>
         </div>
 
-    </div>
+        <!-- PATISSERIES -->
+        <div id="patisseries">
+            <h2>Nos pâtisseries</h2>
 
-    <!-- JAVASCRIPT -->
-    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/chfenj.jpg') }}"
+                     alt="Chfenj">
+                <span>Chfenj</span>
+                <span class="prix">1,00 € / pièce</span>
+            </div>
+
+            <div class="article">
+                <span class="image-manquante" aria-hidden="true">🍯</span>
+                <span>Beghrir</span>
+                <span class="prix">0,70 € / unité</span>
+            </div>
+
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/ke3b_leghzal.jpg') }}"
+                     alt="Kaab el Ghazal">
+                <span>Kaab el Ghazal</span>
+                <span class="prix">0,80 € / unité</span>
+            </div>
+
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/msemen.jpg') }}"
+                     alt="Msemen">
+                <span>Msemen</span>
+                <span class="prix">1,50 € / unité</span>
+            </div>
+
+            <div class="article">
+                <img src="{{ url_for('static', filename='images/ftor_rbate.jpg') }}"
+                     alt="Ftor rbate">
+                <span>Ftor rbate</span>
+                <span class="prix">12,00 € / portion</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="lien-cuisine">
+        <p>Une question ou besoin d'un renseignement ?</p>
+        <a href="{{ url_for('contact') }}">Contactez-nous</a>
+    </section>
+
+</main>
+
+<footer>
+    <p>© Café Lbeldia - Tous droits réservés</p>
+</footer>
 
 </body>
 </html>
