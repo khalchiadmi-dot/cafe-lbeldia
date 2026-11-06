@@ -3,7 +3,6 @@
    CAFÉ LBELDIA - PAGE D'ACCUEIL
 ================================= */
 
-/* Fond général */
 html {
     min-height: 100%;
     background-color: #f5e6cc;
@@ -19,87 +18,168 @@ body {
 
     background:
         linear-gradient(
-            rgba(245, 235, 221, 0.65),
-            rgba(245, 235, 221, 0.65)
+            rgba(245, 235, 221, 0.72),
+            rgba(245, 235, 221, 0.72)
         ),
-        url("./images/porte1_maroc.jpg")
-        center center / cover fixed no-repeat;
+        url("./images/fondMarocain.jpg") center center / cover fixed no-repeat;
 }
 
-/* En-tête */
+/* EN-TÊTE */
 header {
     text-align: center;
-    padding: 35px 15px;
-    background-color: rgba(255, 244, 223, 0.92);
+    padding: 30px 15px;
+    background: rgba(255, 244, 223, 0.94);
     border-bottom: 2px solid #d6b995;
+    box-shadow: 0 3px 10px rgba(78, 52, 46, 0.10);
 }
 
 header h1 {
     color: #83321f;
     font-size: 32px;
-    margin: 0 0 12px;
+    margin: 0 0 10px;
 }
 
 header p {
     color: #70452f;
-    font-size: 18px;
+    font-size: 17px;
     margin: 0;
 }
 
-/* Contenu principal */
+/* CONTENU */
 main {
-    width: 90%;
-    max-width: 900px;
-    margin: 45px auto;
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
     flex: 1;
 }
 
-/* Présentation */
+/* PRÉSENTATION */
 .presentation {
     text-align: center;
-    padding: 35px 25px;
-    background-color: rgba(255, 250, 240, 0.88);
+    padding: 25px 20px;
+    margin-bottom: 30px;
+    background: rgba(255, 250, 240, 0.90);
     border: 1px solid #d6b995;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(78, 52, 46, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(78, 52, 46, 0.10);
 }
 
 .presentation h2 {
     color: #8B4513;
     font-size: 25px;
-    margin-bottom: 18px;
 }
 
 .presentation p {
     color: #70452f;
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
-/* Lien vers la cuisine */
+/* LIEN CUISINE */
 .lien-menu {
     display: inline-block;
-    background-color: #e8c99b;
+    padding: 12px 22px;
+    background: #e8c99b;
     color: #70452f;
-    padding: 13px 25px;
-    border-radius: 9px;
+    border-radius: 8px;
     text-decoration: none;
-    font-size: 17px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: 0.3s;
 }
 
 .lien-menu:hover {
-    background-color: #d9b47e;
+    background: #d9b47e;
 }
 
-/* Contact */
+/* TITRE DES MENUS */
+.titre-menu {
+    text-align: center;
+    color: #83321f;
+    font-size: 26px;
+    margin: 30px 0 20px;
+}
+
+/* DEUX COLONNES */
+#menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    align-items: start;
+}
+
+/* BOISSONS ET PATISSERIES */
+#boissons,
+#patisseries {
+    padding: 22px;
+    background: rgba(255, 250, 240, 0.90);
+    border: 1px solid #D6B995;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(78, 52, 46, 0.12);
+}
+
+#boissons h2,
+#patisseries h2 {
+    text-align: center;
+    color: #8B4513;
+    font-size: 23px;
+    margin: 5px 0 25px;
+}
+
+/* ARTICLES */
+.article {
+    display: grid;
+    grid-template-columns: 75px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ead9c2;
+}
+
+.article img {
+    width: 75px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 9px;
+    transition: transform 0.3s ease;
+}
+
+.article img:hover {
+    transform: scale(1.08);
+}
+
+.article > span:not(.prix) {
+    min-width: 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.image-manquante {
+    width: 75px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2dfbd;
+    border-radius: 9px;
+    font-size: 27px;
+}
+
+/* PRIX */
+.prix {
+    color: #83321f;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* CONTACT */
 .lien-cuisine {
     text-align: center;
-    background-color: rgba(255, 244, 223, 0.95);
+    background: rgba(255, 244, 223, 0.96);
     padding: 25px 20px;
-    margin: 30px auto;
+    margin: 35px auto;
     border: 1px solid #e4c99f;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(78, 52, 46, 0.10);
@@ -108,32 +188,32 @@ main {
 .lien-cuisine p {
     color: #70452f;
     font-size: 17px;
-    margin: 0 0 18px;
+    margin-bottom: 18px;
 }
 
 .lien-cuisine a {
     display: inline-block;
-    background-color: #f2d5a5;
+    background: #f2d5a5;
     color: #70452f;
     padding: 13px 28px;
     border-radius: 9px;
     text-decoration: none;
-    font-weight: bold;
     font-size: 18px;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .lien-cuisine a:hover {
-    background-color: #e8bd7e;
+    background: #e8bd7e;
     color: #55321f;
 }
 
-/* Pied de page */
+/* PIED DE PAGE */
 footer {
     margin-top: auto;
     text-align: center;
     padding: 18px;
-    background-color: rgba(255, 244, 223, 0.92);
+    background: rgba(255, 244, 223, 0.94);
     color: #70452f;
     border-top: 1px solid #d6b995;
 }
@@ -142,39 +222,47 @@ footer p {
     margin: 0;
 }
 
-/* Adaptation téléphone */
-@media (max-width: 600px) {
+/* TÉLÉPHONES */
+@media (max-width: 700px) {
 
-    header {
-        padding: 25px 12px;
+    body {
+        background-attachment: scroll;
     }
 
     header h1 {
         font-size: 25px;
     }
 
-    header p {
-        font-size: 15px;
-    }
-
-    main {
-        width: 92%;
-        margin: 25px auto;
+    #menu {
+        grid-template-columns: 1fr;
+        gap: 18px;
     }
 
     .presentation {
-        padding: 25px 18px;
+        padding: 20px 15px;
     }
 
     .presentation h2 {
         font-size: 21px;
     }
 
-    .presentation p {
-        font-size: 15px;
+    #boissons,
+    #patisseries {
+        padding: 18px;
     }
 
-    .lien-cuisine {
-        padding: 22px 15px;
+    .article {
+        grid-template-columns: 65px minmax(0, 1fr) auto;
+        gap: 9px;
+    }
+
+    .article img,
+    .image-manquante {
+        width: 65px;
+        height: 58px;
+    }
+
+    .prix {
+        font-size: 13px;
     }
 }
