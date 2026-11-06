@@ -1,133 +1,36 @@
+<section id="patisseries">
+    <h2>Nos pâtisseries</h2>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Lbeldia - Accueil</title>
+    <div class="article">
+        <img src="{{ url_for('static', filename='images/patisseries/chfenj.jpg') }}"
+             alt="Chfenj">
+        <h3>Chfenj</h3>
+        <p>1,00 € la pièce</p>
+    </div>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-</head>
+    <div class="article">
+        <h3>Beghrir</h3>
+        <p>0,70 € l'unité</p>
+    </div>
 
-<body>
+    <div class="article">
+        <img src="{{ url_for('static', filename='images/patisseries/ke3b_leghzal.jpg') }}"
+             alt="Kaab el Ghazal">
+        <h3>Kaab el Ghazal</h3>
+        <p>0,80 € l'unité</p>
+    </div>
 
-<header>
-    <h1>Bienvenue chez Café Lbeldia</h1>
-    <p>Les saveurs du Maroc, préparées avec passion</p>
-</header>
+    <div class="article">
+        <img src="{{ url_for('static', filename='images/patisseries/msemen.jpg') }}"
+             alt="Msemen">
+        <h3>Msemen</h3>
+        <p>1,50 € l'unité</p>
+    </div>
 
-<main>
-
-    <section class="presentation">
-        <h2>Bienvenue dans notre univers marocain</h2>
-        <p>
-            Découvrez nos boissons et nos pâtisseries traditionnelles,
-            préparées avec soin et gourmandise.
-        </p>
-        <a class="lien-menu" href="{{ url_for('cuisine') }}">
-            Découvrir notre cuisine marocaine
-        </a>
-    </section>
-
-    <h2 class="titre-menu">Nos boissons et nos gourmandises</h2>
-
-    <section id="menu">
-
-        <!-- BOISSONS -->
-        <div id="boissons">
-            <h2>Nos boissons</h2>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/boissons/cafe_au_lait.jpg') }}"
-                     alt="Café au lait">
-                <span>Café au lait</span>
-                <span class="prix">2,50 €</span>
-            </div>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/boissons/cafe_russe.jpg') }}"
-                     alt="Café russe">
-                <span>Café russe</span>
-                <span class="prix">2,50 €</span>
-            </div>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/boissons/capuchon.jpg') }}"
-                     alt="Cappuccino">
-                <span>Cappuccino</span>
-                <span class="prix">2,50 €</span>
-            </div>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/boissons/express.jpg') }}"
-                     alt="Expresso">
-                <span>Expresso</span>
-                <span class="prix">2,50 €</span>
-            </div>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/boissons/the.jpg') }}"
-                     alt="Thé marocain à la menthe">
-                <span>Thé marocain à la menthe</span>
-                <span class="prix">3,50 €</span>
-            </div>
-        </div>
-
-        <!-- PATISSERIES -->
-        <div id="patisseries">
-            <h2>Nos pâtisseries</h2>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/patisseries/chfenj.jpg') }}"
-     alt="Chfenj">
-                <span>Chfenj</span>
-                <span class="prix">1,00 € / pièce</span>
-            </div>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/patisseries/Beghrir.jpg') }}"
-                     alt="beghrir">
-                
-                <span>Beghrir</span>
-                <span class="prix">0,70 € / unité</span>
-            </div>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/ke3b_leghzal.jpg') }}"
-                     alt="Kaab el Ghazal">
-                <span>Kaab el Ghazal</span>
-                <span class="prix">0,80 € / unité</span>
-            </div>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/msemen.jpg') }}"
-                     alt="Msemen">
-                <span>Msemen</span>
-                <span class="prix">1,50 € / unité</span>
-            </div>
-
-            <div class="article">
-                <img src="{{ url_for('static', filename='images/ftor_rbate.jpg') }}"
-                     alt="Ftor rbate">
-                <span>Ftor rbate</span>
-                <span class="prix">12,00 € / portion</span>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- CONTACT -->
-    <section class="lien-cuisine">
-        <p>Une question ou besoin d'un renseignement ?</p>
-        <a href="{{ url_for('contact') }}">Contactez-nous</a>
-    </section>
-
-</main>
-
-<footer>
-    <p>© Café Lbeldia - Tous droits réservés</p>
-</footer>
-
-</body>
-</html>
+    <div class="article">
+        <img src="{{ url_for('static', filename='images/patisseries/ftor_rbate.jpg') }}"
+             alt="Ftor rbate">
+        <h3>Ftor rbate</h3>
+        <p>12,00 € la portion</p>
+    </div>
+</section>
