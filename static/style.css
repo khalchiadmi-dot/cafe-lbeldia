@@ -18,10 +18,10 @@ body {
 
     background:
         linear-gradient(
-            rgba(245, 235, 221, 0.72),
-            rgba(245, 235, 221, 0.72)
+            rgba(245, 235, 221, 0.40),
+            rgba(245, 235, 221, 0.40)
         ),
-        url("./images/fondMarocain.jpg") center center / cover fixed no-repeat;
+        url("./images/porte1_maroc.jpg") center center / cover fixed no-repeat;
 }
 
 /* EN-TÊTE */
