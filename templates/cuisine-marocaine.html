@@ -24,6 +24,15 @@
         <h1>La cuisine marocaine</h1>
         <p>Découvrez les saveurs traditionnelles du Maroc</p>
     </header>
+    <div id="messages-flash">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for categorie, message in messages %}
+            <div class="message-flash {{ categorie }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endwith %}
+</div>
 
     <main id="menu-cuisine">
 
